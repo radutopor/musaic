@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <EditText
+        android:id="@+id/searchBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toLeftOf="@+id/search"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+    <Button
+        android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:onClick="onSearchClick"
+        android:text="Search" />
+
+    <HorizontalScrollView
+        android:id="@+id/playlistConstraintsScroll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/searchBox"
+        android:layout_alignRight="@+id/search"
+        android:layout_below="@+id/searchBox"
+        android:visibility="gone" >
+        <LinearLayout
+            android:id="@+id/playlistConstraints"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <Button
+        android:id="@+id/favorite"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:onClick="onFavoriteClick"
+        android:enabled="false"
+        android:text="Favorite" />
+
+    <ProgressBar
+        android:id="@+id/progressSpinnerBig"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone" />
+
+    <ListView
+        android:id="@+id/optionList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/currentSongTextScroll"
+        android:layout_below="@+id/playlistConstraintsScroll"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp" >
+
+        <!-- Preview: listitem=@android:layout/test_list_item -->
+
+    </ListView>
+
+    <Button
+        android:id="@+id/skip"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/favorite"
+        android:layout_alignRight="@+id/favorite"
+        android:enabled="false"
+        android:onClick="onSkipClick"
+        android:text="Skip" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/skip"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/skip"
+        android:layout_toRightOf="@+id/playPause"
+        android:enabled="false" />
+    <HorizontalScrollView
+        android:id="@+id/currentSongTextScroll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/seekBar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dp" >
+
+        <TextView
+            android:id="@+id/currentSongText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text=" "
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </HorizontalScrollView>
+
+    <Button
+        android:id="@+id/playPause"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ban"
+        android:layout_alignLeft="@+id/ban"
+        android:enabled="false"
+        android:onClick="onPlayPauseClick"
+        android:text="Pause" />
+
+    <Button
+        android:id="@+id/ban"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:onClick="onBanClick"
+        android:enabled="false"
+        android:text="Ban" />
+
+    <TextView
+        android:id="@+id/playbackTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/skip"
+        android:layout_alignRight="@+id/seekBar"
+        android:text=" "
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        style="@style/musaicRatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/favorite"
+        android:layout_toRightOf="@+id/ban"
+        android:layout_alignBottom="@+id/favorite"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
+
+</RelativeLayout>
